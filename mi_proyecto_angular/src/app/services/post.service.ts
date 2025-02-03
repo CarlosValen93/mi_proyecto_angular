@@ -46,21 +46,40 @@ export class PostService {
   ];
 
   getAll(): IPost[] {
+    console.log("Recuperando todos los posts...");
+    if (this.arrPosts.length === 0) {
+      console.log("No hay posts en arrPosts.");
+    }
     return this.arrPosts;
   }
+  
+  
   getById(idPost: number): IPost| undefined {
     return this.arrPosts.find(post => post._id === idPost)
   }
   
   addPost(newPost: IPost) {
-    // Asignar un ID único basado en la longitud del array + 1
+
     newPost._id = this.arrPosts.length + 1;
     this.arrPosts.push(newPost);
-    console.log('✅ Post agregado:', newPost);
+
   }
+  getByCategory(categoryId: number): IPost[] {
+    //esta funcion me ayude de la IA para poder sacar lo que quería
+    if (isNaN(categoryId)) {
+   
+      return [];
+    }
+  
+    console.log("Filtrando posts con categoría ID:", categoryId);
+    return this.arrPosts.filter(post => post.category.id === categoryId);
+  }
+  
+  
+
   getCategories(): ICategory[] {
     return this.arrCategories;
   }
-  
-
 }
+
+

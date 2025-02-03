@@ -10,4 +10,6 @@ import { HeaderComponent } from "./components/header/header.component";
 })
 export class AppComponent {
   title = 'mi_proyecto_angular';
-}
+
+  }
+
