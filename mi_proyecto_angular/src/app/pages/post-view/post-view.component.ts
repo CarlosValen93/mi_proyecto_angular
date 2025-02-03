@@ -19,7 +19,7 @@ export class PostViewComponent {
     post! : IPost;
   
     ngOnInit() {
-      const id = Number(this.route.snapshot.paramMap.get('idpost')); 
+      const id = Number(this.route.snapshot.paramMap.get('idpost')); //esta formula la busque con chatGPT porque sabia lo que queria buscar pero no encontraba el metodo 
 
   
       const response = this.postService.getById(id);

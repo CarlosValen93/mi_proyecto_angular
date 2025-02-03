@@ -7,11 +7,11 @@ import { IPost } from '../interfaces/ipost.interface';
 })
 export class PostService {
   private arrCategories: ICategory[] = [
-    { id: 1, title: 'Playa' },
-    { id: 2, title: 'Montaña' },
-    { id: 3, title: 'Ciudad' },
-    { id: 4, title: 'Rural' },
-    { id: 5, title: 'Festivales' }
+    { id: 1, title: 'playa' },
+    { id: 2, title: 'montaña' },
+    { id: 3, title: 'ciudad' },
+    { id: 4, title: 'rural' },
+    { id: 5, title: 'festivales' }
   ]
 
   arrPosts: IPost[]=[
@@ -50,6 +50,16 @@ export class PostService {
   }
   getById(idPost: number): IPost| undefined {
     return this.arrPosts.find(post => post._id === idPost)
+  }
+  
+  addPost(newPost: IPost) {
+    // Asignar un ID único basado en la longitud del array + 1
+    newPost._id = this.arrPosts.length + 1;
+    this.arrPosts.push(newPost);
+    console.log('✅ Post agregado:', newPost);
+  }
+  getCategories(): ICategory[] {
+    return this.arrCategories;
   }
   
 

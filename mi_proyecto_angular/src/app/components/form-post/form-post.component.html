@@ -1,0 +1,79 @@
+
+
+<form [formGroup]="formPost" (ngSubmit)="submitPost()">
+
+  <div>
+    <label class="form-label" for="title">Título</label>
+    <input class="form-control" type="text" id="title" formControlName="title" placeholder="Introduce el título del post">
+    @if(checkErrorField('title', 'required')){
+        <p class="error">El campo es obligatorio</p>
+        }
+        @if(checkErrorField('title', 'minlength')){
+        <p class="error">El campo tiene una longitud minima de 3 caracteres</p>
+        }
+  </div>
+
+  <div>
+    <label class="form-label" for="author">Autor</label>
+    <input class="form-control" type="text" id="author" formControlName="author" placeholder="Introduce el nombre del autor">
+    @if(checkErrorField('author', 'required')){
+        <p class="error">El campo es obligatorio</p>
+        }
+        @if(checkErrorField('author', 'minlength')){
+        <p class="error">El campo tiene una longitud minima de 3 caracteres</p>
+        }
+  </div>
+
+  <div>
+    <div>
+        <label class="form-label" for="category">Categoría</label>
+        <select class="form-select" id="category" formControlName="category">
+          <option value="">Selecciona una categoría</option>
+          @for(category of categories; track category.id) {
+            <option [value]="category.id">{{ category.title }}</option>
+          }
+        </select>
+        @if(checkErrorField('category', 'required')){
+            <p class="error">La categoría es obligatoria</p>
+            }
+      </div>
+      
+      
+
+  </div>
+
+  <div>
+    <label class="form-label" for="image">Imagen URL</label>
+    <input class="form-control" type="url" id="image" formControlName="image" placeholder="Introduce la URL de la imagen">
+    @if(checkErrorField('image', 'required')){
+        <p class="error">La imagen es obligatoria</p>
+        }
+    
+        @if(checkErrorField('image', 'pattern')){
+        <p class="error">Tienes que poner un URL válida, el formato debe ser : png, jpg, jpeg, gif, webp, bmp o svg </p>
+        }
+  </div>
+
+  <div>
+    <label class="form-label" for="text">Contenido del Post</label>
+    <textarea class="form-control" id="text" formControlName="text" placeholder="Escribe el contenido del post" rows="5"></textarea>
+    @if(checkErrorField('text', 'required')){
+        <p class="error">El campo es obligatorio</p>
+        }
+        @if(checkErrorField('text', 'minlength')){
+        <p class="error">El campo tiene una longitud minima de 100 caracteres</p>}
+  </div>
+  <div>
+  <label class="form-label" for="publication">Fecha de Publicación</label>
+  <input class="form-control" type="date" id="publication" formControlName="publication">
+  @if(checkErrorField('publication', 'required')){
+    <p class="error">La fecha es obligatoria</p>
+    }
+
+</div>
+
+  <div>
+    <input type="submit" value="Publicar Post" class="btn btn-success mt-3" [disabled]="formPost.invalid">
+  </div>
+
+</form>
