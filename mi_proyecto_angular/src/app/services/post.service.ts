@@ -22,7 +22,7 @@ export class PostService {
       author: "Juan Pérez",
       image: "https://www.viajesylugares.com/images/showid/5341217",
       publication: new Date('2024-02-10'),
-      category: this.arrCategories[0] // Playa
+      category: this.arrCategories[0] 
     },
     {
       _id: 2,
@@ -31,7 +31,7 @@ export class PostService {
       author: "María López",
       image: "https://concepto.de/wp-content/uploads/2018/08/monta%C3%B1a-clima-min-e1533762913759.jpg",
       publication: new Date('2024-02-15'),
-      category: this.arrCategories[1] // Montaña
+      category: this.arrCategories[1] 
     },
     {
       _id: 3,
@@ -40,7 +40,7 @@ export class PostService {
       author: "Pedro Ramírez",
       image: "https://www.nexotur.com/fotos/1/Madrid_6418b97a384c8_thumb_690.jpg",
       publication: new Date('2024-03-05'),
-      category: this.arrCategories[2] // Ciudad
+      category: this.arrCategories[2] 
     },
 
   ];

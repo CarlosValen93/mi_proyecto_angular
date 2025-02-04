@@ -1,14 +1,14 @@
 <div class="mb-2 d-flex justify-content-center align-items-center gap-2">
-  <!-- Selector de categoría -->
+
   <label for="categorySelect" class="form-label">Categoría:</label>
   <select id="categorySelect" class="form-select form-select-sm w-auto" [(ngModel)]="selectedCategoryId" (change)="onFilterChange()">
-    <option [value]="null">Todas</option>
+    <option [value]="''">Todas</option>
+
     @for(category of categories; track category.id) {
       <option [value]="category.id">{{ category.title }}</option>
     }
   </select>
 
-  <!-- Input de búsqueda por título -->
   <label for="searchInput" class="form-label">Título:</label>
   <input id="searchInput" type="text" class="form-control form-control-sm w-auto"
          [(ngModel)]="searchTitle" (input)="onFilterChange()" placeholder="Buscar por título...">

@@ -20,30 +20,29 @@ export class HomeComponent implements OnInit {
     this.filteredPosts = [...this.arrPosts];
   }
   updateFilters(filters: { categoryId: number | null, searchTitle: string }) {
-    console.log("🔄 Aplicando filtros en Home:", filters);
+
   
     const { categoryId, searchTitle } = filters;
-  
-    // Si no hay categoría ni título, mostrar todos los posts
+
     if (categoryId === null && !searchTitle.trim()) {
-      console.log("✅ Mostrando todos los posts");
-      this.filteredPosts = [...this.arrPosts]; // Copia todos los posts
+
+      this.filteredPosts = [...this.arrPosts]; 
       return;
     }
   
-    // Aplicar filtros
     let filtered = this.arrPosts;
   
     if (categoryId !== null) {
       filtered = filtered.filter(post => post.category.id === categoryId);
-    }
+   
   
-    if (searchTitle.trim()) {
+  
+    }else  if (searchTitle.trim()) {
       filtered = filtered.filter(post => post.title.toLowerCase().includes(searchTitle.toLowerCase()));
     }
   
     this.filteredPosts = filtered;
-    console.log("📄 Posts después de filtrar:", this.filteredPosts);
+
   }
   
   

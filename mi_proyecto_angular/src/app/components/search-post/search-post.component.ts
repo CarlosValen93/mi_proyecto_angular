@@ -21,13 +21,12 @@ export class SearchPostComponent implements OnInit {
     this.categories = this.postService.getCategories();
   }
   onFilterChange() {
-    console.log("🔍 Filtros actualizados - Categoría:", this.selectedCategoryId, "Título:", this.searchTitle);
-  
     this.filtersChanged.emit({
-      categoryId: this.selectedCategoryId !== null ? Number(this.selectedCategoryId) : null,
+      categoryId: this.selectedCategoryId ? Number(this.selectedCategoryId) : null,
       searchTitle: this.searchTitle.trim().toLowerCase()
     });
   }
+  
   
   
   
