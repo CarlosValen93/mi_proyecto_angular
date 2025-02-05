@@ -14,12 +14,13 @@ export class SearchPostComponent implements OnInit {
   categories: ICategory[] = [];
   selectedCategoryId: number | null = null;
   searchTitle: string = '';
-
+//tuve que buscar como hacer el EvenEmitterr que queria porque me estanque bastante tiempo aquí, como tiene dos datos tuve que buscar como hacerlo, sino deberia haber hecho otra inferfaz. 
   @Output() filtersChanged = new EventEmitter<{ categoryId: number | null, searchTitle: string }>();
 
   ngOnInit() {
     this.categories = this.postService.getCategories();
   }
+  
   onFilterChange() {
     this.filtersChanged.emit({
       categoryId: this.selectedCategoryId ? Number(this.selectedCategoryId) : null,
