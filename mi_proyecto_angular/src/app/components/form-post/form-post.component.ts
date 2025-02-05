@@ -34,7 +34,7 @@ export class FormPostComponent {
       ]),
       text: new FormControl("",[
         Validators.required,
-        Validators.minLength(100)
+        Validators.minLength(50)
 
       ]),
       publication: new FormControl("",[
